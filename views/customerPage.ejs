@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Complaints Page</title>
+    
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script type="text/javascript" src="/javascripts/actions.js" ></script>
+        <link href="/style/complaintPopup.css" rel="stylesheet" type="text/css">
+
+    </head>
+    
+    <header>
+        <title>Complaints Page</title>
+    </header>
+    
+    <body>
+<h1>Welcome <%= user.username%></h1>
+<button type="button" class="signoutbtn"  onclick="signOut()">Sign out</button>
+
+<%if( result.length <= 0){%>
+    <div class="No Complaints">
+        No Complaints
+    </div>
+    <% } else { %>
+
+<table>
+    <tr>
+      <th>Complaint Message</th>
+      <th>Status</th>
+    </tr>
+   
+    <% for(var i=0; i < result.length; i++) { %>
+        <tr>
+          <td><%= result[i].message %></td>
+          <td><%= result[i].status %></td>
+        </tr> 
+     <% } %>
+     <tr id="AddNewComplaint"> </tr>
+    </table>
+
+       <%}%>
+
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add Complaint</button>
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    <div class="modal-content">
+      <h3>Add Complaint Message</h3>
+      <hr>
+      <textarea rows="12" cols="130" name="complaintMessage"  id="complaintMessage">
+       </textarea>
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" class="sendbtn" onclick="addComplaint(`<%- user._id -%>`)">Send Complaint</button>
+      </div>
+    </div>
+ 
+</div>
+
+    </body>
+    
+    
+    
+    
+    </html>
+    

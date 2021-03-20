@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>ABC Companiy Login </title>
+    
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script type="text/javascript" src="/javascripts/actions.js" ></script>
+        <link href="/style/style.css" rel="stylesheet" type="text/css">
+
+    </head>
+    
+    <header>
+        <title>Login</title>
+    </header>
+    
+    <body>
+        <%if(typeof error == "undefined"){%>
+            <div class="signin-container" style="display: none;">
+            <% } else { %>
+                <div class="signin-container" style="display: block;">
+               <%}%>
+       
+        <form  method="post" id="registerForm" action="login">
+          <div class="container">
+           
+            <h1>Login</h1>
+            <%if(typeof error == "undefined"){%>
+         <% } else { %>
+             <p class="Error"> <%= error.message%></p>
+            <%}%>
+
+            <hr>
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" id="email" required>
+        
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+            <hr>        
+            <button type="submit" class="registerbtn">Login</button>
+            
+            <button type="button" class="container signin"  onclick="signupForm()"><p>Create account?</p> Sign up</button>     
+          
+            </div>
+        </form>
+    </div>
+</body>
+   
+</html>

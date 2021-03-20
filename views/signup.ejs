@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>ABC Companiy Login </title>
+    
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script type="text/javascript" src="/javascripts/actions.js" ></script>
+        <link href="/style/style.css" rel="stylesheet" type="text/css">
+
+    </head>
+    
+    <header>
+        <title>Register</title>
+    </header>
+    
+    <body>
+        <div class="signup-container">
+        <form  method="post" id="registerForm"   action="register">
+          <div class="container">
+           
+            <h1>Register</h1>
+            <p>Please fill in this form to create an account.</p>
+            <%if(typeof error == "undefined"){%>
+         <% } else { %>
+             <p class="Error">   <%= error.message%></p>
+                
+            <%}%>
+
+            <hr>
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" id="email" required>
+        
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+        
+            <label for="confirmPassword"><b>Repeat Password</b></label>
+            <input type="password" placeholder="Repeat Password" name="confirmPassword" id="confirmPassword" required>
+            <label for="myCheck">Register As Admin:</label> 
+            <input type="checkbox"  name="admin" id="admin">
+            <hr>     
+            <button type="submit" class="registerbtn" >Register</button>
+               
+            <button type="button" class="container signin"  onclick="signinForm()"><p>Already have an account?</p> Sign in</button>
+          
+        </div>
+        </form>
+    </div>
+
+    <%- include ('signin') -%>
+
+        </body>
+    
+    
+    
+    
+</html>
